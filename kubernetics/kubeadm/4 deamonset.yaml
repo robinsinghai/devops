@@ -1,0 +1,23 @@
+kind: DeamonSet
+version: app/v1
+metadata:
+  name: nginx-deamonsets
+  namespace: nginx
+spec:
+  
+  selector:
+    matchLabels:
+     app: nginx
+
+  template:
+    metadata:
+      name: nginx-dem-pod
+      labels:
+        app: nginx
+
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
