@@ -25,3 +25,32 @@ rm -rf kind
 
 echo "kind & kubectl installation complete."
 ```
+
+
+## 2. Installing docker
+Install docker using the provided script:
+```bash
+
+#!/bin/bash
+
+sudo apt-get update
+
+sudo apt-get install docker.io
+
+sudo usermod -aG docker $USER && newgrp docker  
+
+echo "docker installation complete."
+```
+
+## 3. Setup KIND
+
+```bash
+
+#!/bin/bash
+
+chmod +x ./kind
+
+kind create cluster --name=tws-cluster --config=config-kind.yaml
+
+echo "kind steup completed."
+```
