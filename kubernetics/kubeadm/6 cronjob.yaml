@@ -10,8 +10,8 @@ spec:
       template:
         metadata:
           name: minute-backup
-        labels:
-          app: minute-backup
+          labels:
+            app: minute-backup
 
         spec: 
           conatiners:
@@ -32,13 +32,13 @@ spec:
             - name: backup-volume
               mountPath: /backups
 
-            restartPolicy: OnFailure
-            volums:
-              - name: data-volume
-                hostPath:
-                  path: /demo-data
-                  type: DirectoryOrCreate
-              - name: backup-volume
-                hostPath:
-                  path: /backups
-                  type: DirectoryOrCreate
+          restartPolicy: OnFailure
+          volums:
+            - name: data-volume
+              hostPath:
+                path: /demo-data
+                type: DirectoryOrCreate
+            - name: backup-volume
+              hostPath:
+                path: /backups
+                type: DirectoryOrCreate
